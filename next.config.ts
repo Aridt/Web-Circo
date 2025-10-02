@@ -1,16 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Configuración para Tailwind 4
-  experimental: {
-    turbo: {
-      rules: {
-        '*.css': {
-          loaders: ['@tailwindcss/postcss'],
-        },
-      },
-    },
-  },
+  // Remover configuración experimental de Tailwind 4
 };
 
 export default nextConfig;
