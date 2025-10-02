@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import Lightbox from './Lightbox';
 
 export default function GaleriaSection() {
@@ -31,10 +32,12 @@ export default function GaleriaSection() {
                 className="relative overflow-hidden rounded-lg cursor-pointer group aspect-square"
                 onClick={() => setSelectedImage(img)}
               >
-                <img 
+                <Image 
                   src={img} 
                   alt={`Circo ${i+1}`}
-                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover transform group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
                   <span className="text-yellow-400 font-bold">Ver más</span>

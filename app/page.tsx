@@ -12,20 +12,17 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   const [curtainsOpen, setCurtainsOpen] = useState(false);
-  const [showContent, setShowContent] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Asegurar que el componente está montado
     setMounted(true);
     
-    // Iniciar la animación de cortinas
-    const timer1 = setTimeout(() => setCurtainsOpen(true), 500);
-    const timer2 = setTimeout(() => setShowContent(true), 2500);
+    // Iniciar la animación de cortinas después de un breve delay
+    const timer = setTimeout(() => setCurtainsOpen(true), 500);
     
     return () => {
-      clearTimeout(timer1);
-      clearTimeout(timer2);
+      clearTimeout(timer);
     };
   }, []);
 
@@ -40,22 +37,17 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen bg-black">
-      <CurtainAnimation isOpen={curtainsOpen} showContent={showContent} />
+      {/* El contenido está siempre visible */}
+      <Header />
+      <HeroSection />
+      <AboutSection />
+      <FuncionesSection />
+      <GaleriaSection />
+      <EntradasSection />
+      <Footer />
       
-      <div 
-        className={`transition-opacity duration-1000 ${
-          showContent ? 'opacity-100' : 'opacity-0'
-        }`}
-        style={{ transitionDelay: showContent ? '500ms' : '0ms' }}
-      >
-        <Header />
-        <HeroSection />
-        <AboutSection />
-        <FuncionesSection />
-        <GaleriaSection />
-        <EntradasSection />
-        <Footer />
-      </div>
+      {/* Las cortinas se superponen al contenido */}
+      <CurtainAnimation isOpen={curtainsOpen} />
     </div>
   );
 }

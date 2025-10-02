@@ -41,7 +41,7 @@ export default function Footer() {
         
         <div className="border-t border-gray-800 pt-8 text-center">
           <p className="text-yellow-400 text-xl italic font-semibold mb-2">
-            "El circo pequeño más grande del mundo… donde lo imposible sucede"
+            &ldquo;El circo pequeño más grande del mundo… donde lo imposible sucede&rdquo;
           </p>
           <p className="text-gray-500 text-sm">© 2025 El Circo. Todos los derechos reservados.</p>
         </div>

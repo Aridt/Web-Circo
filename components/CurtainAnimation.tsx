@@ -1,11 +1,14 @@
 interface Props {
   isOpen: boolean;
-  showContent: boolean;
 }
 
-export default function CurtainAnimation({ isOpen, showContent }: Props) {
+export default function CurtainAnimation({ isOpen }: Props) {
   return (
-    <div className={`fixed inset-0 z-50 pointer-events-none transition-opacity duration-1000 ${showContent ? 'opacity-0' : 'opacity-100'}`}>
+    <div 
+      className={`fixed inset-0 z-50 pointer-events-none transition-opacity duration-1000 ${
+        isOpen ? 'opacity-0 delay-[3500ms]' : 'opacity-100'
+      }`}
+    >
       <div className="absolute inset-0 flex">
         {/* Telón Izquierdo */}
         <div 
@@ -32,7 +35,8 @@ export default function CurtainAnimation({ isOpen, showContent }: Props) {
         </div>
       </div>
       
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black via-gray-900 to-transparent" />
+      {/* Cortinero superior */}
+      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-black via-gray-900 to-transparent z-10" />
     </div>
   );
 }
